@@ -12,7 +12,7 @@ public class LedControllerIdUtil {
     }
 
     public static int unprefix(final String controllerId) {
-        return Integer.parseInt(controllerId.substring(0, PREFIX.length()));
+        return Integer.parseInt(controllerId.substring(PREFIX.length(), controllerId.length()));
     }
 
 }
