@@ -19,7 +19,7 @@ public class LedScriptExecutorService implements ScriptExecutorService {
         try {
             final RgbJson rgbJson = objectMapper.readValue(file, RgbJson.class);
             final int ledId = LedControllerIdUtil.unprefix(controllerId);
-            WS2812.get().setPixelColor(ledId, rgbJson.getR(), rgbJson.getG(), rgbJson.getB());
+            WS2812.get().setPixelColor(ledId, (byte) rgbJson.getR(), (byte) rgbJson.getG(), (byte) rgbJson.getB());
             WS2812.get().show();
         } catch (final Exception e) {
             Throwables.throwIfUnchecked(e);
