@@ -77,10 +77,6 @@ public class DdiClient implements Runnable {
                 if (actionId != runningAction) {
                     runningAction = actionId;
                     startDownloadAndExecute(actionId);
-                } else {
-                    sendFeedBackMessage(actionId, ExecutionStatus.REJECTED, FinalResult.FAILURE,
-                            Collections.singleton("Already running action with id: " + runningAction
-                                    + " cannot start new action id: " + actionId));
                 }
             }
             executorService.schedule(this, pollingIntervalInMillis, TimeUnit.MILLISECONDS);
